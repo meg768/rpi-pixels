@@ -1,0 +1,27 @@
+{
+  "name": "rpi-pixels",
+  "version": "1.0.0",
+  "description": "rpi-pixels",
+  "main": "index.js",
+  "scripts": {
+    "goto-github": "open https://github.com/meg768/rpi-pixels",
+    "goto-npm": "open https://www.npmjs.com/package/rpi-pixels",
+    "git-pull": "git pull",
+    "git-commit": "git add -A && git commit -m '-' && git push",
+    "git-revert": "git reset --hard HEAD",
+    "npm-publish": "npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meg768/rpi-pixels.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meg768/rpi-pixels/issues"
+  },
+  "homepage": "https://github.com/meg768/rpi-pixels#readme",
+  "dependencies": {
+    "color": "^3.1.1"
+  }
+}
