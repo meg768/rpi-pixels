@@ -1,2 +1,2 @@
 
-module.exports.Pixels = require('./src/pixels.js');
+module.exports = require('./src/pixels.js');
