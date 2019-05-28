@@ -21,11 +21,13 @@ module.exports = class Pixels {
 			}
 			else if (options.debug) {
 				debug = console.log;
-			}
+            }
+            
+            this.Color = Color;
 	
         }
 
-
+        
         RGB(red, green, blue) {        
             return ((red << 16) | (green << 8) | blue);
         }
@@ -44,6 +46,14 @@ module.exports = class Pixels {
     
             for (var i = 0; i < this.pixels.length; i++)
                 this.pixels[i] = color;
+        }
+
+        fillRGB(r, g, b) {
+            this.fill(this.RGB(r, g, b));
+        }
+
+        fillHSL(h, s, l) {
+            this.fill(this.HSL(h, s, l));
         }
 
         clear() {
