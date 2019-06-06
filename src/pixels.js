@@ -1,4 +1,5 @@
 var Color = require('color');
+var Pixels = require('../build/rpi-pixels.node');
 
 function debug() {
 }
@@ -12,9 +13,11 @@ module.exports = class Pixels {
 			if (options.width == undefined || options.height == undefined)
 	            throw new Error('Width and height must be specified.');
 
-			this.width  = options.width;
+			this.width = options.width;
 			this.height = options.height;
 			this.pixels = new Uint32Array(this.width * this.height);
+			this.contents = new Uint32Array(this.width * this.height);
+			this.tmp = new Uint32Array(this.width * this.height);
 
 			if (typeof options.debug === 'function') {
 				debug = options.debug;
@@ -85,10 +88,10 @@ module.exports = class Pixels {
 		}
 		
 		render(options) {
+            Pixels.render({...options, width:this.width, height:this.height, pixels:this.pixels, contents:this.contents, render:this.renderToDevice, tmp:this.tmp});
         }
         
         renderToDevice(pixels) {
-
         }
  
 }

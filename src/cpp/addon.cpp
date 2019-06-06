@@ -1,19 +1,36 @@
 #include "addon.h"
 
+
+
 NAN_METHOD(Addon::render)
 {
 	Nan::HandleScope();
 
-	if (info.Length() != 2) {
-		return Nan::ThrowError("render() requires pixels and pixel mapping arguments.");
-	}
+    try {
+    	int argc = info.Length();
 
-    if (!info[0]->IsUint32Array())
-		return Nan::ThrowError("render() requires pixels to be an Uint32Array.");
+        if (info.Length() != 1) {
+            return Nan::ThrowError("render() requires one argument.");
+        }
 
-    if (!info[1]->IsUint32Array())
-		return Nan::ThrowError("render() requires pixels mapping to be an Uint32Array.");
+        v8::Local<v8::Object> options = v8::Local<v8::Object>::Cast(info[0]);
+        v8::Local<v8::Uint32Array> pixels = options->Get(Nan::New<v8::String>("pixels").ToLocalChecked()).As<v8::Uint32Array>();
+        v8::Local<v8::Function> render = options->Get(Nan::New<v8::String>("render").ToLocalChecked()).As<v8::Function>();
 
+
+
+
+    }
+    
+    catch (exception &error) {
+        string what = error.what();
+        string message = string("render() failed: ") + what;
+
+		return Nan::ThrowError(message.c_str());
+    }
+    catch (...) {
+        return Nan::ThrowError("Unhandled error");
+    }
 
 	info.GetReturnValue().Set(Nan::Undefined());
 
@@ -23,7 +40,7 @@ NAN_METHOD(Addon::render)
 
 NAN_MODULE_INIT(initAddon)
 {
-	Nan::SetMethod(target, "render",     Addon::render);
+	Nan::SetMethod(target, "render", Addon::render);
 }
 
 

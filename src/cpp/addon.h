@@ -28,6 +28,14 @@
 
 using namespace std;
 
+
+typedef struct {
+    uint8_t red;     // 0 - 255 */
+    uint8_t green;   // 0 - 255 */
+    uint8_t blue;    // 0 - 255 */
+    uint8_t alpha;   // 0 - 255 */
+} RGBA;
+
 class Addon {
 
 public:
