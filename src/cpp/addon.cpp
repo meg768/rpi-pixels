@@ -17,6 +17,7 @@ NAN_METHOD(Addon::render)
         v8::Local<v8::Uint32Array> pixels = options->Get(Nan::New<v8::String>("pixels").ToLocalChecked()).As<v8::Uint32Array>();
         v8::Local<v8::Function> render = options->Get(Nan::New<v8::String>("render").ToLocalChecked()).As<v8::Function>();
 
+		render->Call(1, &pixels);
 
 
 
