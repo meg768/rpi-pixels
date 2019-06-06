@@ -85,6 +85,10 @@ module.exports = class Pixels {
 		}
 		
 		render(options) {
-		}
+        }
+        
+        renderToDevice(pixels) {
+
+        }
  
 }
