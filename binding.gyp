@@ -12,7 +12,7 @@
                 "-lrt"
             ],
             "cflags":[  
-                "-Wall -O3 -g"
+                "-Wall -O3 -g -fexceptions"
             ]
         }
     ]
