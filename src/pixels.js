@@ -1,5 +1,4 @@
 var Color = require('color');
-var Pixels = require('../build/rpi-pixels.node');
 
 function debug() {
 }
@@ -25,7 +24,6 @@ module.exports = class Pixels {
 			else if (options.debug) {
 				debug = console.log;
             }
-            
             this.Color = Color;
 	
         }
@@ -88,10 +86,6 @@ module.exports = class Pixels {
 		}
 		
 		render(options) {
-            Pixels.render({...options, width:this.width, height:this.height, pixels:this.pixels, contents:this.contents, render:this.renderToDevice, tmp:this.tmp});
-        }
-        
-        renderToDevice(pixels) {
         }
  
 }
