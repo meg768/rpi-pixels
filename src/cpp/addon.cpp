@@ -19,7 +19,7 @@ NAN_METHOD(Addon::render)
         v8::Local<v8::Value> result;
 	    v8::Local<v8::Context> context;
 		
-		render->Call(context, &result, 1, &pixels);
+		render->Call(context, result, 1, &pixels);
 
 		info.GetReturnValue().Set(Nan::Undefined());
 
