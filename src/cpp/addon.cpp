@@ -16,10 +16,11 @@ NAN_METHOD(Addon::render)
         v8::Local<v8::Object> options = v8::Local<v8::Object>::Cast(info[0]);
         v8::Local<v8::Uint32Array> pixels = options->Get(Nan::New<v8::String>("pixels").ToLocalChecked()).As<v8::Uint32Array>();
         v8::Local<v8::Function> render = options->Get(Nan::New<v8::String>("render").ToLocalChecked()).As<v8::Function>();
+        v8::Local<v8::Value> result;
+		
+		render->Call(&result, 1, &pixels);
 
-		render->Call(1, &pixels);
-
-
+		info.GetReturnValue().Set(Nan::Undefined());
 
     }
     
