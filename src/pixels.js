@@ -35,7 +35,7 @@ module.exports = class Pixels {
 	}
 
 	getIndex(x, y) {
-		return this.map[y * this.width + x];
+		return y * this.width + x;
 	}
 
 	fillRGB(r, g, b) {
