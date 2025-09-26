@@ -11,37 +11,7 @@ module.exports = class Pixels {
 		this.width = options.width;
 		this.height = options.height;
 		this.pixels = new Uint32Array(this.width * this.height);
-		this.map = null;
 
-		if (options.map instanceof Uint32Array && options.map.length == this.width * this.height) {
-			this.map = options.map;
-		}
-
-		if (options.map === 'serpentine' || options.map === 'alternating-matrix') {
-			let map = new Uint32Array(this.width * this.height);
-
-			for (var i = 0; i < map.length; i++) {
-				var row = Math.floor(i / this.width);
-				var col = i % this.width;
-
-				if (row % 2 === 0) {
-					map[i] = i;
-				} else {
-					map[i] = (row + 1) * this.width - (col + 1);
-				}
-			}
-
-			this.map = map;
-		}
-
-		if (!this.map) {
-			let map = new Uint32Array(this.width * this.height);
-
-			for (var i = 0; i < map.length; i++) {
-				map[i] = i;
-			}
-			this.map = map;
-		}
 	}
 
 	RGB(red, green, blue) {
