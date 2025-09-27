@@ -1,6 +1,6 @@
 {
   "name": "rpi-pixels",
-  "version": "1.1.11",
+  "version": "1.1.13",
   "description": "rpi-pixels",
   "main": "index.js",
   "scripts": {
