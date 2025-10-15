@@ -121,4 +121,4 @@ const corrected = Pixels.gammaCorrect(pixels.pixels, 2.0);
 ## License
 
 MIT © Magnus Egelberg  
-https://github.com/magnusegelberg/rpi-pixels
+https://github.com/meg768/rpi-pixels
